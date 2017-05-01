@@ -3,5 +3,19 @@
 <body>
 <h2>Hello World! React App coming Up</h2>
 <a href="rest/hello">Try hello from rest!</a>
+<h4>Message:</h4>
+<div id="adiv">Something...</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+       $.ajax({
+            url : 'rest/hello',
+           type: 'GET',
+           success: function(data) {
+                $('#adiv').html(data);
+           }
+       });
+    });
+</script>
 </body>
 </html>
