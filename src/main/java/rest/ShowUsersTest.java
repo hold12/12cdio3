@@ -33,6 +33,7 @@ public class ShowUsersTest {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<User> listUsers() {
+        createUsers();
         return users;
     }
 }
