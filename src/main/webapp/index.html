@@ -1,11 +1,20 @@
 <!--suppress HtmlUnknownTarget -->
 <html>
+<head>
+    <!-- version 1.0-0001 -->
+    <title>Hold12</title>
+</head>
 <body>
 <h2>Hello World! React App coming Up</h2>
-<a id="link-btn">Get hello message from rest!</a>
+<button id="link-btn">Get hello message from rest!</button>
 <h4>Message:</h4>
 <div id="adiv">Something...</div>
+
+<div id="user-admin">
+    <table></table>
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-serialize-object/2.5.0/jquery.serialize-object.min.js"></script>
 <script>
     $(document).ready(function() {
         $('#link-btn').click(function() {
@@ -14,10 +23,10 @@
                 type: 'GET',
                 success: function(data) {
                     $('#adiv').html(data);
-            }
+                }
+            });
+        return false;
         });
-
-       });
     });
 </script>
 </body>
