@@ -92,7 +92,7 @@ public class UserAdministrationDB implements IUserAdministration {
         List<String> roles = getRolesFromUser(userId);
         String cpr = resultSet.getString("cpr");
         String password = resultSet.getString("password");
-        return new User(userId, userName, ini, roles, cpr, password);
+        return new User(userId, userName, ini, cpr, password, roles);
     }
 
     private List<String> getRolesFromUser(int userId) {
@@ -120,7 +120,7 @@ public class UserAdministrationDB implements IUserAdministration {
 
     @Override
     public void createUser(User user) throws DataAccessException, DataValidationException {
-        String username = user.getUserName();
+        String username = user.getUsername();
         String initials = user.getInitials();
         List<String> roles = user.getRoles();
         String cpr = user.getCpr();
@@ -151,7 +151,7 @@ public class UserAdministrationDB implements IUserAdministration {
         dbConnection.close();
 
         // Get user id
-        user = getUser(user.getUserName());
+        user = getUser(user.getUsername());
 
         // Add user's roles
         for (String role : roles)
@@ -218,10 +218,10 @@ public class UserAdministrationDB implements IUserAdministration {
         final User oldUser = getUser(user.getUserId());
         int changeCount = 0;
         String sql = "UPDATE user SET";
-        if (!oldUser.getUserName().equals(user.getUserName())) {// Username has been changed
+        if (!oldUser.getUsername().equals(user.getUsername())) {// Username has been changed
             if (changeCount > 0) sql += ", ";
             changeCount++;
-            sql += " username =  '" + user.getUserName() + "'";
+            sql += " username =  '" + user.getUsername() + "'";
         }
         if (!oldUser.getInitials().equals(user.getInitials())) {// Initials has been changed
             if (changeCount > 0) sql += ", ";
