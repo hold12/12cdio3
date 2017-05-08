@@ -31,7 +31,7 @@
 </script>
 <script>
     var url = "https://f1712cdio3.herokuapp.com/rest/users";
-    $.getJSON(url), function (data) {
+    $.getJSON(url, function (data) {
         var row;
         for ( var i = 0;  i < data.length; i++){
             row = $('<tr/>');
