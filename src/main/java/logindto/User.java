@@ -22,7 +22,7 @@ public class User {
         this.initials = initials;
         this.roles = roles;
         this.cpr = cpr;
-        this.password = password();
+        this.password = password;
     }
 
     public int getUserId() {
