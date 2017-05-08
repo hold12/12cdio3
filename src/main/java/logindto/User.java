@@ -7,72 +7,42 @@ import java.util.List;
  */
 
 public class User {
-
     private int userId;
-    private String userName;
+    private String username;
     private String initials;
-    private List<String> roles;
     private String cpr;
     private String password;
+    private List<String> roles;
 
-    //constructor to create new users
-    public User(int userId, String userName, String initials, List<String> roles, String cpr, String password) {
+    public User(int userId, String username, String initials, String cpr, String password, List<String> roles) {
         this.userId = userId;
-        this.userName = userName;
+        this.username = username;
         this.initials = initials;
-        this.roles = roles;
         this.cpr = cpr;
         this.password = password;
+        this.roles = roles;
     }
 
-    public int getUserId() {
-        return userId;
+    public User(User user) {
+        this.userId = user.getUserId();
+        this.username = user.getUsername();
+        this.initials = user.getInitials();
+        this.cpr = user.getCpr();
+        this.password = user.getPassword();
+        this.roles = user.getRoles();
     }
 
-    public String getUserName() {
-        return userName;
-    }
+    public void setUsername(String username) { this.username = username; }
+    public void setInitials(String initials) { this.initials = initials; }
+    public void setCpr(String cpr) { this.cpr = cpr; }
+    public void setPassword(String password) { this.password = password; }
+    public boolean addRole(String role) { return this.roles.add(role); }
+    public boolean removeRole(String role) { return this.roles.remove(role); }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getInitials() {
-        return initials;
-    }
-
-    public void setInitials(String initials) {
-        this.initials = initials;
-    }
-
-    public String getCpr() {
-        return cpr;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public List<String> getRoles() {
-        return roles;
-    }
-
-    public void addRole(String role) {
-        this.roles.add(role);
-    }
-
-    /**
-     * @param role
-     * @return true if role existed, false if not
-     */
-    public boolean removeRole(String role) {
-        return this.roles.remove(role);
-    }
-
-    @Override
-    public String toString() {
-        return "logindto.User [userId=" + userId + ", userName=" + userName + ", initials=" + initials + ", roles=" + roles + "]";
-    }
-
-
+    public int getUserId() { return this.userId; }
+    public String getUsername() { return this.username; }
+    public String getInitials() { return this.initials; }
+    public String getCpr() { return this.cpr; }
+    public String getPassword() { return this.password; }
+    public List<String> getRoles() { return this.roles; }
 }

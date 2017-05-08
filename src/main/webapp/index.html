@@ -1,5 +1,9 @@
 <!--suppress HtmlUnknownTarget -->
 <html>
+<head>
+    <!-- version 1.0-0002 -->
+    <title>Hold12</title>
+</head>
 <body>
 <h2>Hello World! React App coming Up</h2>
 <button id="link-btn">Get hello message from rest!</button>
@@ -13,6 +17,19 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-serialize-object/2.5.0/jquery.serialize-object.min.js"></script>
 <script>
     $(document).ready(function() {
+        var json;
+        $.ajax({
+            url : 'rest/users',
+            type : 'GET',
+            success: function(data) {
+                json = $.parseJSON(data);
+            }
+        });
+
+        $.each(json, function(i, obj) {
+            alert(obj.username);
+        });
+
         $('#link-btn').click(function() {
             $.ajax({
                 url : 'rest/hello',
