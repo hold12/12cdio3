@@ -1,5 +1,5 @@
 <!DOCTYPE>
-<!-- version 1.0-0032 -->
+<!-- version 1.0-0033 -->
 <html>
 <head>
     <meta charset="utf-8" />
@@ -13,7 +13,7 @@
     <h1 id="test">Welcome to team 12! <small>12cdio3</small></h1>
 
     <a id="create-user-btn" class="button">Create a new user</a>
-    <a href="rest/create-test-users" class="button">Create test users</a>
+    <a id="create-test-users-btn" class="button">Create test users</a>
 </div>
 
 <!--<button id="create-user-btn" class="button">Create a new user</button>-->
@@ -27,7 +27,7 @@
         <label for="password" class="label">Password</label><input type="password" name="password" id="password" placeholder="Enter password (fx: my_zUp3rDuperPWD12!)" required />
         <!--<label for="roles" class="label">Roles</label><input type="text" name="roles" id="roles" placeholder="Enter comma separated roles (fx: Admin, Pharmacist)" required />-->
         <label for="roles" class="label">Roles</label>
-        <select id="roles" name="roles[]" multiple>
+        <select id="roles" name="roles[]" multiple required>
             <option value="Admin">Admin</option>
             <option value="Pharmacist">Pharmacist</option>
             <option value="Operator">Operator</option>
