@@ -36,7 +36,7 @@ $("#submit-new-user-btn").click(function(e) {
         url : "rest/create-user",
         type: "POST",
         contentType: "application/json; charset=utf-8",
-        data: {valArray:form},
+        data: form,
         success: function(data) {
             console.log("Successfully posted...");
         },
