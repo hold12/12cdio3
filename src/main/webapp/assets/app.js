@@ -48,13 +48,18 @@ $("#submit-new-user-btn").click(function(e) {
     });
     e.preventDefault();
 
-    showUsers();
     $("#create-user-btn").css("display", "inline-block");
     $("#show_users").css("display", "block");
     $("#create_user").css("display", "none");
+
+    setTimeout(showUsers(),20);
 });
 
 $("#create-test-users-btn").click(function() {
   $.get("rest/create-test-users");
+  setTimeout(showUsers(),20);
+});
+
+$("#refresh-users-btn").click(function() {
   showUsers();
 });
