@@ -5,6 +5,8 @@ $(function() {
     showUsers("rest/users");
 });
 
+setInterval(showUsers("rest/users", 2500));
+
 function showUsers(url) {
     $.getJSON(url , function(data) {
         var tbl_body = "";
@@ -50,5 +52,9 @@ $("#submit-new-user-btn").click(function(e) {
     $("#show_users").css("display", "block");
     $("#create_user").css("display", "none");
 
-    showUsers("rest/users");
+    //showUsers("rest/users");
+});
+
+$("#create-test-users-btn").click(function() {
+  $.get("rest/create-test-users");
 });
