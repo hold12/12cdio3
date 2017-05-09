@@ -20,3 +20,10 @@ function showUsers(url) {
         $("#users-table").append(tbl_body);
     });
 }
+
+
+$("#create-user-btn").click(function() {
+    $("#create-user-btn").css("display", "none");
+    $("#show_users").css("display", "none");
+    $("#create_user").css("display", "block");
+});
