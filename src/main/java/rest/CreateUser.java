@@ -1,5 +1,6 @@
 package rest;
 
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import logindto.User;
 
 import javax.ws.rs.Consumes;
@@ -13,7 +14,7 @@ import javax.ws.rs.core.MediaType;
 @Path("create-user")
 public class CreateUser {
     @POST
-    @Consumes("application/json")
+    @Consumes(MediaType.APPLICATION_JSON)
     public void createUser(User user) {
         ShowUsersTest.addUser(user);
     }
