@@ -1,6 +1,5 @@
 package rest;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import logindto.User;
 
 import javax.ws.rs.Consumes;
