@@ -27,10 +27,10 @@ public class CreateTestUsers {
         r2.add("Pharmacist");
         r3.add("Labtech");
         r3.add("Operator");
-        r4.add(r1.get(0));
-        r4.add(r1.get(1));
-        r4.add(r1.get(2));
-        r4.add(r1.get(3));
+        r4.add("Admin");
+        r4.add("Pharmacist");
+        r4.add("Labtech");
+        r4.add("Operator");
 
 
         User u1 = new User(1, "John Doe", "JD", "010190-1233", "p455w0rd!", r1);
