@@ -26,6 +26,14 @@ public class ShowUsersTest {
         users.remove(user);
     }
 
+    public static User getUser(int id) {
+        for (User user : users)
+            if (user.getUserId() == id)
+                return user;
+
+        return null;
+    }
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<User> listUsers() {

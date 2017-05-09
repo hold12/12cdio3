@@ -14,17 +14,12 @@ function showUsers(url) {
             $.each(this, function(k , v) {
                 tbl_row += "<td>"+v+"</td>";
             })
-            tbl_row += "<a id=\"delete-user-btn\" class=\"button\" onclick=\"deleteUser(this)\">Delete user</a>";
+            tbl_row += "<a id=\"delete-user-btn\" class=\"button\">Delete user</a>";
             tbl_body += "<tr class=\""+( odd_even ? "odd" : "even")+"\">"+tbl_row+"</tr>";
             odd_even = !odd_even;
         })
         $("#users-table").append(tbl_body);
     });
-}
-
-function deleteUser(btn) {
-    var row = btn.parentNode.parentNode;
-    row.parentNode.removeChild(row);
 }
 
 $("#create-user-btn").click(function() {
@@ -53,5 +48,22 @@ $("#submit-new-user-btn").click(function(e) {
 });
 
 $("#delete-user-btn").click(function() {
-    deleteUser(btn);
+    var row = this.parentNode.parentNode;
+    var id = row.attributes.item(0);
+
+    console.log("clicked");
+
+    $.ajax({
+        url : "rest/delete-user",
+        type: "POST",
+        data: {valArray:id},
+        success: function(data) {
+            console.log("Successfully posted...");
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log("Error on POST. Status: " + textStatus + " Error: " + errorThrown);
+        }
+    });
+    e.preventDefault();
 });
+

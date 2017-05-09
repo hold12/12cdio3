@@ -10,11 +10,17 @@ import javax.ws.rs.core.MediaType;
 /**
  * Created by freya on 09-05-2017.
  */
-@Path("delete")
+@Path("delete-user")
 public class DeleteUser {
-    @POST
+    /*@POST
     @Consumes(MediaType.APPLICATION_JSON)
     public void deleteUser(User user) {
         ShowUsersTest.removeUser(user);
+    }*/
+
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void deleteUser(int userID) {
+        ShowUsersTest.removeUser(ShowUsersTest.getUser(userID));
     }
 }
