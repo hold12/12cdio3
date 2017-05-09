@@ -52,12 +52,14 @@ $("#submit-new-user-btn").click(function(e) {
     $("#show_users").css("display", "block");
     $("#create_user").css("display", "none");
 
-    setTimeout(showUsers(),20);
+    setTimeout(function(){}, 30);
+    showUsers();
 });
 
 $("#create-test-users-btn").click(function() {
   $.get("rest/create-test-users");
-  setTimeout(showUsers(),20);
+  setTimeout(function(){}, 30);
+  showUsers();
 });
 
 $("#refresh-users-btn").click(function() {
