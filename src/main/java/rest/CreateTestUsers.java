@@ -4,6 +4,8 @@ import logindto.User;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.core.Response;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +15,7 @@ import java.util.List;
 @Path("create-test-users")
 public class CreateTestUsers {
     @GET
-    public String createTestUsers() {
+    public Response createTestUsers() {
         List<String> jdRoles = new ArrayList<String>();
         List<String> joRoles = new ArrayList<String>();
 
@@ -26,7 +28,7 @@ public class CreateTestUsers {
 
         ShowUsersTest.addUser(jd);
         ShowUsersTest.addUser(jo);
-
-        return "Users created...";
+        URI uri = URI.create("/");
+        return Response.temporaryRedirect(uri).build();
     }
 }

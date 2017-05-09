@@ -45,4 +45,8 @@ $("#submit-new-user-btn").click(function(e) {
         }
     });
     e.preventDefault();
+
+    $("#create-user-btn").css("display", "block");
+    $("#show_users").css("display", "block");
+    $("#create_user").css("display", "none");
 });
