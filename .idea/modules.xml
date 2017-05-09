@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/12cdio3.iml" filepath="$PROJECT_DIR$/12cdio3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/docker-file/docker-file.iml" filepath="$PROJECT_DIR$/docker-file/docker-file.iml" />
     </modules>
   </component>
 </project>
