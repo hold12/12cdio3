@@ -16,24 +16,24 @@ public class ShowUsersTest {
     private List<User> users = new ArrayList<User>();
 
     private void createUsers() {
-        List<String> jdRoles = new ArrayList<String>();
-        List<String> joRoles = new ArrayList<String>();
 
-        jdRoles.add("Admin");
-        jdRoles.add("Pharmacist");
-        joRoles.add("Pharmacist");
-
-        User jd = new User(1, "John Doe", "JD", "010190-1233", "p455w0rd!", jdRoles);
-        User jo = new User(2, "Jane Doe", "JO", "010190-1234", "!dr0w554p", joRoles);
 
         users.add(jd);
         users.add(jo);
     }
 
+    public static void addUser(User user) {
+        users.add(user);
+    }
+
+    public static void removeUser(User user) {
+        users.remove(user);
+    }
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<User> listUsers() {
-        createUsers();
+        //createUsers();
         return users;
     }
 }
