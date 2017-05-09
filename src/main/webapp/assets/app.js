@@ -28,6 +28,7 @@ $("#create-user-btn").click(function() {
 });
 
 $("#submit-new-user-btn").click(function(e) {
+    console.log("clicked");
     var form = $("#create-user-form").serializeJSON();
     console.log(form);
 
