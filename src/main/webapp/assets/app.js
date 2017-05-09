@@ -7,20 +7,30 @@ $(function() {
 
 function showUsers() {
     var header = "<tbody><tr><th>User ID</th><th>Username</th><th>Initials</th><th>CPR</th><th>Password</th><th>Roles</th></tr>";
-    $.getJSON("rest/users" , function(data) {
+    var delete_btn = "";
+    $.getJSON("rest/user/list" , function(data) {
         var tbl_body = "";
         var odd_even = false;
         $.each(data, function() {
             var tbl_row = "";
             $.each(this, function(k , v) {
                 tbl_row += "<td>"+v+"</td>";
+                if (k === "userId") {
+                  delete_btn = "<th><a onclick=\"deleteUser(" + v + ");\" class=\"button alert small\">Delete</a></th>";
+                }
             })
-            tbl_body += "<tr class=\""+( odd_even ? "odd" : "even")+"\">"+tbl_row+"</tr>";
+            tbl_body += "<tr class=\""+( odd_even ? "odd" : "even")+"\">"+tbl_row+delete_btn+"</tr>";
             odd_even = !odd_even;
         })
 
         $("#users-table").html(header + tbl_body + "</tbody>");
     });
+}
+
+function deleteUser(userId) {
+  $.get("rest/user/delete/" + userId);
+  setTimeout(function() {}, 30);
+  showUsers();
 }
 
 $("#create-user-btn").click(function() {
@@ -35,7 +45,7 @@ $("#submit-new-user-btn").click(function(e) {
     console.log(form);
 
     $.ajax({
-        url : "rest/create-user",
+        url : "rest/user/create/new",
         type: "POST",
         contentType: "application/json; charset=utf-8",
         data: form,
@@ -57,7 +67,7 @@ $("#submit-new-user-btn").click(function(e) {
 });
 
 $("#create-test-users-btn").click(function() {
-  $.get("rest/create-test-users");
+  $.get("rest/user/create/test");
   setTimeout(function(){}, 30);
   showUsers();
 });
