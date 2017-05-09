@@ -13,13 +13,9 @@ import java.util.List;
 
 @Path("users")
 public class ShowUsersTest {
-    private List<User> users = new ArrayList<User>();
+    private static List<User> users = new ArrayList<User>();
 
     private void createUsers() {
-
-
-        users.add(jd);
-        users.add(jo);
     }
 
     public static void addUser(User user) {
