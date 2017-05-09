@@ -2,13 +2,12 @@
  * Created by AndersWOlsen on 09-05-2017.
  */
 $(function() {
-    showUsers("rest/users");
+    showUsers();
 });
 
-setInterval(showUsers("rest/users", 2500));
-
-function showUsers(url) {
-    $.getJSON(url , function(data) {
+function showUsers() {
+    var header = "<tbody><tr><th>User ID</th><th>Username</th><th>Initials</th><th>CPR</th><th>Password</th><th>Roles</th></tr>";
+    $.getJSON("rest/users" , function(data) {
         var tbl_body = "";
         var odd_even = false;
         $.each(data, function() {
@@ -19,7 +18,8 @@ function showUsers(url) {
             tbl_body += "<tr class=\""+( odd_even ? "odd" : "even")+"\">"+tbl_row+"</tr>";
             odd_even = !odd_even;
         })
-        $("#users-table").append(tbl_body);
+
+        $("#users-table").html(header + tbl_body + "</tbody>");
     });
 }
 
@@ -48,13 +48,13 @@ $("#submit-new-user-btn").click(function(e) {
     });
     e.preventDefault();
 
-    $("#create-user-btn").css("display", "block");
+    showUsers();
+    $("#create-user-btn").css("display", "inline-block");
     $("#show_users").css("display", "block");
     $("#create_user").css("display", "none");
-
-    //showUsers("rest/users");
 });
 
 $("#create-test-users-btn").click(function() {
   $.get("rest/create-test-users");
+  showUsers();
 });
