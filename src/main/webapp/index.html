@@ -10,6 +10,8 @@
 <h4>Message:</h4>
 <div id="adiv">Something...</div>
 
+<p id="testing"></p>
+
 <div id="user-admin">
     <table></table>
 </div>
@@ -30,18 +32,20 @@
     });
 </script>
 <script>
-    var url = "https://f1712cdio3.herokuapp.com/rest/users";
-    $.getJSON(url, function (data) {
-        var row;
-        for ( var i = 0;  i < data.length; i++){
-            row = $('<tr/>');
-            row.append("<td>" + data[i].UserId + "</td>");
-            row.append("<td>" + data[i].username + "</td>");
-            row.append("<td>" + data[i].initials + "</td>");
-            row.append("<td>" + data[i].cpr + "</td>");
-            row.append("<td>" + data[i].password + "</td>");
-            row.append("<td>" + data[i].roles + "</td>");
-        }
+    var url = "rest/users";
+    $(document).ready(function() {
+        $.getJSON(url, function (data) {
+            var row;
+            for ( var i = 0;  i < data.length; i++){
+                row = $('<tr/>');
+                row.append("<td>" + data[i].UserId + "</td>");
+                row.append("<td>" + data[i].username + "</td>");
+                row.append("<td>" + data[i].initials + "</td>");
+                row.append("<td>" + data[i].cpr + "</td>");
+                row.append("<td>" + data[i].password + "</td>");
+                row.append("<td>" + data[i].roles + "</td>");
+            }
+        });
     });
 </script>
 </body>
