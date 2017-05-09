@@ -11,7 +11,7 @@ import java.util.List;
  * Created by AndersWOlsen on 08-05-2017.
  */
 
-@Path("users")
+@Path("user")
 public class ShowUsersTest {
     private static List<User> users = new ArrayList<User>();
 
@@ -26,6 +26,9 @@ public class ShowUsersTest {
         users.remove(user);
     }
 
+    public static List<User> getUsersList() { return users; }
+
+    @Path("list")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<User> listUsers() {

@@ -10,8 +10,9 @@ import javax.ws.rs.core.MediaType;
 /**
  * Created by AndersWOlsen on 09-05-2017.
  */
-@Path("create-user")
+@Path("user")
 public class CreateUser {
+    @Path("create/new")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public void createUser(User user) {
