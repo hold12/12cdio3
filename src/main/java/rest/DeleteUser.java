@@ -10,7 +10,7 @@ import javax.ws.rs.core.MediaType;
 /**
  * Created by freya on 09-05-2017.
  */
-@Path("delete-user")
+@Path("delete")
 public class DeleteUser {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
