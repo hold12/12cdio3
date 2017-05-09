@@ -13,27 +13,23 @@ import java.util.List;
 
 @Path("users")
 public class ShowUsersTest {
-    private List<User> users = new ArrayList<User>();
+    private static List<User> users = new ArrayList<User>();
 
     private void createUsers() {
-        List<String> jdRoles = new ArrayList<String>();
-        List<String> joRoles = new ArrayList<String>();
+    }
 
-        jdRoles.add("Admin");
-        jdRoles.add("Pharmacist");
-        joRoles.add("Pharmacist");
+    public static void addUser(User user) {
+        users.add(user);
+    }
 
-        User jd = new User(1, "John Doe", "JD", "010190-1233", "p455w0rd!", jdRoles);
-        User jo = new User(2, "Jane Doe", "JO", "010190-1234", "!dr0w554p", joRoles);
-
-        users.add(jd);
-        users.add(jo);
+    public static void removeUser(User user) {
+        users.remove(user);
     }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<User> listUsers() {
-        createUsers();
+        //createUsers();
         return users;
     }
 }
