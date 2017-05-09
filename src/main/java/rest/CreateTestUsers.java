@@ -42,6 +42,10 @@ public class CreateTestUsers {
 
         ShowUsersTest.addUser(u1);
         ShowUsersTest.addUser(u2);
+        ShowUsersTest.addUser(u3);
+        ShowUsersTest.addUser(u4);
+        ShowUsersTest.addUser(u5);
+        ShowUsersTest.addUser(u6);
         URI uri = URI.create("/");
         return Response.temporaryRedirect(uri).build();
     }
