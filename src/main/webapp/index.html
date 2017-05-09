@@ -1,5 +1,5 @@
 <!DOCTYPE>
-<!-- version 1.0-0036 -->
+<!-- version 1.0-0037 -->
 <html>
 <head>
     <meta charset="utf-8" />
@@ -13,10 +13,11 @@
 <body>
 <div class="row">
     <h1 id="test">Welcome to team 12! <small>12cdio3</small></h1>
-
+    <a id="home-btn" onclick="goHome();" class="button round"><i class="fa fa-home" aria-hidden="true"></i></a>
     <a id="refresh-users-btn" class="button round"><i class="fa fa-refresh" aria-hidden="true"></i></a>
     <a id="create-user-btn" class="button secondary">Create a new user</a>
     <a id="create-test-users-btn" class="button secondary">Create test users</a>
+    <!--<a id="update-user-btn" onclick="editUser(1);" class="button info">Edit user (id=1)</a>-->
 </div>
 
 <!--<button id="create-user-btn" class="button">Create a new user</button>-->
@@ -38,6 +39,7 @@
         </select>
 
         <input type="button" class="button" id="submit-new-user-btn" value="Submit new user" />
+        <input type="button" class="button" id="submit-edited-user-btn" value="Submit edited user" />
     </form>
 </div>
 

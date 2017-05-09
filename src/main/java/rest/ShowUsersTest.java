@@ -28,11 +28,22 @@ public class ShowUsersTest {
 
     public static List<User> getUsersList() { return users; }
 
-    @Path("list")
+    @Path("get/all")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<User> listUsers() {
         //createUsers();
         return users;
+    }
+
+    @Path("get/{userId}")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public User getUser(@PathParam("userId") int userId) {
+        User user = null;
+        for (User curUser : users)
+            if (curUser.getUserId() == userId)
+                return curUser;
+        return null;
     }
 }

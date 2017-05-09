@@ -48,6 +48,7 @@ public class User {
     public void setInitials(String initials) { this.initials = initials; }
     public void setCpr(String cpr) { this.cpr = cpr; }
     public void setPassword(String password) { this.password = password; }
+    public void setRoles(List<String> roles) { this.roles = roles; }
     public boolean addRole(String role) { return this.roles.add(role); }
     public boolean removeRole(String role) { return this.roles.remove(role); }
 
