@@ -13,7 +13,7 @@ import javax.ws.rs.core.MediaType;
 @Path("create-user")
 public class CreateUser {
     @POST
-    @Consumes(MediaType.APPLICATION_JSON)
+    @Consumes("application/json")
     public void createUser(User user) {
         ShowUsersTest.addUser(user);
     }
