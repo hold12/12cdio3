@@ -45,7 +45,6 @@
       <version>3.7.0</version>
     </dependency>
 
-
   </dependencies>
   <build>
     <finalName>12cdio3</finalName>
