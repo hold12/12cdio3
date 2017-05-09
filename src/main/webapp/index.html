@@ -1,5 +1,5 @@
 <!DOCTYPE>
-<!-- version 1.0-0026 -->
+<!-- version 1.0-0029 -->
 <html>
 <head>
     <meta charset="utf-8" />
@@ -25,14 +25,14 @@
         <label for="initials" class="label">Initials</label><input type="text" name="initials" id="initials" placeholder="Enter initials (fx: JD)" required />
         <label for="cpr" class="label">CPR</label><input type="text" name="cpr" id="cpr" placeholder="Enter CPR (fx: 010190-1233)" required />
         <label for="password" class="label">Password</label><input type="password" name="password" id="password" placeholder="Enter password (fx: my_zUp3rDuperPWD12!)" required />
-        <label for="roles" class="label">Roles</label><input type="text" name="roles" id="roles" placeholder="Enter comma separated roles (fx: Admin, Pharmacist)" required />
-        <!--<label for="roles" class="label">Roles</label>
-        <select id="roles" name="roles" multiple>
-            <option value="admin">Admin</option>
-            <option value="pharmacist">Pharmacist</option>
-            <option value="operator">Operator</option>
-            <option value="labtech">labtech</option>
-        </select>-->
+        <!--<label for="roles" class="label">Roles</label><input type="text" name="roles" id="roles" placeholder="Enter comma separated roles (fx: Admin, Pharmacist)" required />-->
+        <label for="roles" class="label">Roles</label>
+        <select id="roles" name="roles[]" multiple>
+            <option value="Admin">Admin</option>
+            <option value="Pharmacist">Pharmacist</option>
+            <option value="Operator">Operator</option>
+            <option value="Labtech">Labtech</option>
+        </select>
 
         <input type="button" class="button" id="submit-new-user-btn" value="Submit new user" />
     </form>
