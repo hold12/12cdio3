@@ -3,6 +3,7 @@
  */
 $(function() {
     showUsers();
+    console.log("version 1.0-0036");
 });
 
 function showUsers() {
