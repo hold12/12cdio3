@@ -13,7 +13,7 @@ import java.util.List;
 @Path("create-test-users")
 public class CreateTestUsers {
     @GET
-    public void createTestUsers() {
+    public String createTestUsers() {
         List<String> jdRoles = new ArrayList<String>();
         List<String> joRoles = new ArrayList<String>();
 
@@ -26,5 +26,7 @@ public class CreateTestUsers {
 
         ShowUsersTest.addUser(jd);
         ShowUsersTest.addUser(jo);
+
+        return "Users created...";
     }
 }
