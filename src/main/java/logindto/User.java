@@ -24,15 +24,6 @@ public class User {
         this.roles = roles;
     }
 
-    public User(int userId, String username, String initials, String cpr, String password, String roles) {
-        this.userId = userId;
-        this.username = username;
-        this.initials = initials;
-        this.cpr = cpr;
-        this.password = password;
-        this.roles = Arrays.asList(roles.split(","));
-    }
-
     public User(User user) {
         this.userId = user.getUserId();
         this.username = user.getUsername();
