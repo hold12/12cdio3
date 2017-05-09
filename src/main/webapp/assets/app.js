@@ -50,5 +50,5 @@ $("#submit-new-user-btn").click(function(e) {
     $("#show_users").css("display", "block");
     $("#create_user").css("display", "none");
 
-    showUsers();
+    showUsers("rest/users");
 });
