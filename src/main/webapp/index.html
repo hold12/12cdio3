@@ -1,5 +1,5 @@
 <!DOCTYPE>
-<!-- version 1.0-0014 -->
+<!-- version 1.0-0020 -->
 <html>
 <head>
     <meta charset="utf-8" />
@@ -13,20 +13,28 @@
     <h1 id="test">Welcome to team 12! <small>12cdio3</small></h1>
 
     <a id="create-user-btn" class="button">Create a new user</a>
+    <a href="rest/create-test-users" class="buttton">Create test users</a>
 </div>
 
 <!--<button id="create-user-btn" class="button">Create a new user</button>-->
 
 <div class="row" id="create_user" style="display:none;">
-    <form action="rest/create-user" method="post" id="create-user">
-        <label for="userId" class="label">User ID</label><input type="text" id="userId" placeholder="Enter user id (fx: 1)" required />
-        <label for="username" class="label">Username</label><input type="text" id="username" placeholder="Enter username (fx: John_Doe_15inch)" required />
-        <label for="initials" class="label">Initials</label><input type="text" id="initials" placeholder="Enter initials (fx: JD)" required />
-        <label for="cpr" class="button">CPR</label><input type="text" id="cpr" placeholder="Enter CPR (fx: 010190-1233)" required />
-        <label for="password" class="label">Password</label><input type="password" id="password" placeholder="Enter password (fx: my_zUp3rDuperPWD12!)" required />
-        <label for="roles" class="label">Roles</label><input type="text" id="roles" placeholder="Enter comma separated roles (fx: Admin, Pharmacist)" required />
+    <form  method="post" id="create-user-form" enctype="application/json">
+        <label for="userId" class="label">User ID</label><input type="number" name="userId" id="userId" placeholder="Enter user id (fx: 1)" required />
+        <label for="username" class="label">Username</label><input type="text" name="username" id="username" placeholder="Enter username (fx: John_Doe_15inch)" required />
+        <label for="initials" class="label">Initials</label><input type="text" name="initials" id="initials" placeholder="Enter initials (fx: JD)" required />
+        <label for="cpr" class="button">CPR</label><input type="text" name="cpr" id="cpr" placeholder="Enter CPR (fx: 010190-1233)" required />
+        <label for="password" class="label">Password</label><input type="password" name="password" id="password" placeholder="Enter password (fx: my_zUp3rDuperPWD12!)" required />
+        <label for="roles" class="label">Roles</label><input type="text" name="roles" id="roles" placeholder="Enter comma separated roles (fx: Admin, Pharmacist)" required />
+        <!--<label for="roles" class="label">Roles</label>
+        <select id="roles" name="roles" multiple>
+            <option value="admin">Admin</option>
+            <option value="pharmacist">Pharmacist</option>
+            <option value="operator">Operator</option>
+            <option value="labtech">labtech</option>
+        </select>-->
 
-        <input type="submit" class="button" value="Submit new user" />
+        <input type="button" class="button" id="submit-new-user-btn" value="Submit new user" />
     </form>
 </div>
 
@@ -45,7 +53,6 @@
         </table>
     </div>
 </div>
-
 
 <script src="assets/app.js"></script>
 </body>

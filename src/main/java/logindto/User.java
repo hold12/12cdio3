@@ -24,8 +24,8 @@ public class User {
         this.roles = roles;
     }
 
-    public User(int userId, String username, String initials, String cpr, String password, String roles) {
-        this.userId = userId;
+    public User(String userId, String username, String initials, String cpr, String password, String roles) {
+        this.userId = Integer.parseInt(userId);
         this.username = username;
         this.initials = initials;
         this.cpr = cpr;
