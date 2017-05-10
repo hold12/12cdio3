@@ -1,46 +1,63 @@
-<!--suppress HtmlUnknownTarget -->
+<!DOCTYPE>
+<!-- version 1.0-0037 -->
 <html>
 <head>
-    <!-- version 1.0-0002 -->
-    <title>Hold12</title>
+    <meta charset="utf-8" />
+    <title>Hold 12 - 12cdio3</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-serialize-object/2.5.0/jquery.serialize-object.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="assets/dark.css" />
 </head>
 <body>
-<h2>Hello World! React App coming Up</h2>
-<button id="link-btn">Get hello message from rest!</button>
-<h4>Message:</h4>
-<div id="adiv">Something...</div>
-
-<div id="user-admin">
-    <table></table>
+<div class="row">
+    <h1 id="test">Welcome to team 12! <small>12cdio3</small></h1>
+    <a id="home-btn" onclick="goHome();" class="button round"><i class="fa fa-home" aria-hidden="true"></i></a>
+    <a id="refresh-users-btn" class="button round"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+    <a id="create-user-btn" class="button secondary">Create a new user</a>
+    <a id="create-test-users-btn" class="button secondary">Create test users</a>
+    <!--<a id="update-user-btn" onclick="editUser(1);" class="button info">Edit user (id=1)</a>-->
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-serialize-object/2.5.0/jquery.serialize-object.min.js"></script>
-<script>
-    $(document).ready(function() {
-        var json;
-        $.ajax({
-            url : 'rest/users',
-            type : 'GET',
-            success: function(data) {
-                json = $.parseJSON(data);
-            }
-        });
 
-        $.each(json, function(i, obj) {
-            alert(obj.username);
-        });
+<!--<button id="create-user-btn" class="button">Create a new user</button>-->
 
-        $('#link-btn').click(function() {
-            $.ajax({
-                url : 'rest/hello',
-                type: 'GET',
-                success: function(data) {
-                    $('#adiv').html(data);
-                }
-            });
-        return false;
-        });
-    });
-</script>
+<div class="row" id="create_user" style="display:none;">
+    <form  method="post" id="create-user-form" enctype="application/json">
+        <label for="userId" class="label">User ID</label><input type="number" name="userId" id="userId" placeholder="Enter user id (fx: 1)" required />
+        <label for="username" class="label">Username</label><input type="text" name="username" id="username" placeholder="Enter username (fx: John_Doe_15inch)" required />
+        <label for="initials" class="label">Initials</label><input type="text" name="initials" id="initials" placeholder="Enter initials (fx: JD)" required />
+        <label for="cpr" class="label">CPR</label><input type="text" name="cpr" id="cpr" placeholder="Enter CPR (fx: 010190-1233)" required />
+        <label for="password" class="label">Password</label><input type="password" name="password" id="password" placeholder="Enter password (fx: my_zUp3rDuperPWD12!)" required />
+        <!--<label for="roles" class="label">Roles</label><input type="text" name="roles" id="roles" placeholder="Enter comma separated roles (fx: Admin, Pharmacist)" required />-->
+        <label for="roles" class="label">Roles</label>
+        <select id="roles" name="roles[]" multiple required>
+            <option value="Admin">Admin</option>
+            <option value="Pharmacist">Pharmacist</option>
+            <option value="Operator">Operator</option>
+            <option value="Labtech">Labtech</option>
+        </select>
+
+        <input type="button" class="button" id="submit-new-user-btn" value="Submit new user" />
+        <input type="button" class="button" id="submit-edited-user-btn" value="Submit edited user" />
+    </form>
+</div>
+
+<div class="row" id="show_users" style="display:block">
+    <div class="users">
+        <table id="users-table">
+            <tr>
+                <th>User ID</th>
+                <th>Username</th>
+                <th>Initials</th>
+                <th>CPR</th>
+                <th>Password</th>
+                <th>Roles</th>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<script src="assets/app.js"></script>
 </body>
 </html>

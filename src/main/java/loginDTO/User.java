@@ -1,4 +1,4 @@
-package logindto;
+package loginDTO;
 
 import java.util.List;
 
@@ -13,6 +13,8 @@ public class User {
     private String cpr;
     private String password;
     private List<String> roles;
+
+    public User() {}
 
     public User(int userId, String username, String initials, String cpr, String password, List<String> roles) {
         this.userId = userId;
@@ -36,6 +38,7 @@ public class User {
     public void setInitials(String initials) { this.initials = initials; }
     public void setCpr(String cpr) { this.cpr = cpr; }
     public void setPassword(String password) { this.password = password; }
+    public void setRoles(List<String> roles) { this.roles = roles; }
     public boolean addRole(String role) { return this.roles.add(role); }
     public boolean removeRole(String role) { return this.roles.remove(role); }
 

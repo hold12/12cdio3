@@ -1,0 +1,15 @@
+body {
+  color:#fff;
+  background-color: #111;
+}
+
+th {
+  background-color: #444;
+}
+
+tr.even {
+  background-color: #222 !important;
+}
+tr.odd {
+  background-color: #333 !important;
+}
