@@ -1,7 +1,7 @@
 package dao;
 
 import controller.UserValidator;
-import logindto.User;
+import loginDTO.User;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

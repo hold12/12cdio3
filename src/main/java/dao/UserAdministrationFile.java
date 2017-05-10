@@ -1,6 +1,6 @@
 package dao;
 
-import logindto.User;
+import loginDTO.User;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package rest;
 
-import logindto.User;
+import loginDTO.User;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;

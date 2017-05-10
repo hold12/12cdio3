@@ -4,7 +4,7 @@ package dao;
  * Created by tjc on 9/2/17.
  */
 
-import logindto.User;
+import loginDTO.User;
 
 import java.util.List;
 

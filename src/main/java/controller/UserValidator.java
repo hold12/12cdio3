@@ -1,6 +1,6 @@
 package controller;
 
-import logindto.User;
+import loginDTO.User;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
